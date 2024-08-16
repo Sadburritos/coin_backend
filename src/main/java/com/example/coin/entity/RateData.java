@@ -9,7 +9,7 @@ public class RateData {
     private String symbol;
     private String currencySymbol;
     private String type;
-    private Double rateUsd; //TODO: Переделать на Double. В книге есть описание разницы между boolean - Boolean, string- String, double - Double
+    private Double rateUsd; 
     @Id
     private Long timestamp;
 
