@@ -19,30 +19,25 @@ public class RateService {
 	private final CoinRepository coinRepository;
 	private final WebClient webClient;
 
-
 	public RateService(WebClient.Builder webClientBuilder, CoinRepository coinRepository) {
 		this.coinRepository = coinRepository;
 		this.webClient = webClientBuilder.baseUrl("api.coincap.io").build();
-		
-		
-		
+
 	}
 
 	public void getBitcoinRate() {
-		//TODO: Этот метод должен получать с API  RateDataDto, извлекать из него RateData, добавлять в него timestamp и сохранять в базу
-		
-		
+		// TODO: Этот метод должен получать с API RateDataDto, извлекать из него
+		// RateData, добавлять в него timestamp и сохранять в базу
 
 		RateDataDto rateDataDto = this.webClient.get().uri("/v2/rates/bitcoin")
-			.retrieve().bodyToMono(RateDataDto.class).block();
+				.retrieve().bodyToMono(RateDataDto.class).block();
 
 		RateData rateData = rateDataDto.getData();
-		
+
 		rateData.setTimestamp(rateDataDto.getTimestamp());
 
 		coinRepository.save(rateData);
 
-	
 	}
 
 }

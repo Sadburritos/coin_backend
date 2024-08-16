@@ -13,7 +13,7 @@ public class RateData {
     @Id
     private Long timestamp;
 
-    public RateData(String id, String symbol, String currencySymbol, String type, double rateUsd, Long timestamp) {
+    public RateData(String id, String symbol, String currencySymbol, String type, Double rateUsd, Long timestamp) {
         this.id = id;
         this.symbol = symbol;
         this.currencySymbol = currencySymbol;
@@ -64,11 +64,11 @@ public class RateData {
         this.type = type;
     }
 
-    public double getRateUsd() {
+    public Double getRateUsd() {
         return rateUsd;
     }
 
-    public void setRateUsd(double rateUsd) {
+    public void setRateUsd(Double rateUsd) {
         this.rateUsd = rateUsd;
     }
 
