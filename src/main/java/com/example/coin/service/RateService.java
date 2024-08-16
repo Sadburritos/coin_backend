@@ -1,17 +1,14 @@
 package com.example.coin.service;
 
-import java.util.List;
-
-import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.example.coin.dto.RateDataDto;
 import com.example.coin.entity.RateData;
 import com.example.coin.repository.CoinRepository;
 
-import reactor.core.publisher.Mono;
+
 
 @Service
 public class RateService {
@@ -25,7 +22,10 @@ public class RateService {
 
 	}
 
-	public void getBitcoinRate() {
+
+
+	@Scheduled(fixedRate = 30000)
+		public void getBitcoinRate() {
 		// TODO: Этот метод должен получать с API RateDataDto, извлекать из него
 		// RateData, добавлять в него timestamp и сохранять в базу
 
