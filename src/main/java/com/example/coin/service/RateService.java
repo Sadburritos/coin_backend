@@ -17,6 +17,7 @@ public class RateService {
 	}
 
 	public Mono<RateDataDto> getBitcoinRate() {
+		//TODO: Этот метод должен получать с API  RateDataDto, извлекать из него RateData, добавлять в него timestamp и сохранять в базу
 		return this.webClient.get().uri("/v2/rates/bitcoin")
 			.retrieve().bodyToMono(RateDataDto.class);
 	}
