@@ -1,11 +1,9 @@
 package com.example.coin.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity(name = "test")
+@Entity
 public class RateData {
     private String id;
     private String symbol;
