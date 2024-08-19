@@ -13,4 +13,4 @@ public class CoinApplication {
 	}
 
 }
-// ----
+// ----  

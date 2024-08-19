@@ -1,6 +1,6 @@
 package com.example.coin.service;
 
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import com.example.coin.dto.RateDataDto;
 import com.example.coin.entity.RateData;
 import com.example.coin.repository.CoinRepository;
 
-import reactor.core.Disposable;
+
 import reactor.netty.http.client.HttpClient;
 
 @Service
@@ -28,7 +28,7 @@ public class RateService {
 
 	}
 
-	@Scheduled(fixedRate = 30000)
+	@Scheduled(fixedRate = 10000)
 	public void getBitcoinRate() {
 
 		RateDataDto rateDataDto = webClient.get().uri("/v2/rates/bitcoin")

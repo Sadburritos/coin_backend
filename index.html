@@ -1,0 +1,27 @@
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+  fetch("http://localhost:8080/rateData").then(response => response.json()).then(data => {
+    const timestamp = data.map(x => x.timestamp);
+    const rateUsd = data.map(x => x.rateUsd);
+
+    // Забрать с RateServis rateData c помощью fetch в нём создать Сhart. timestamp в labels, rate в data
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: timestamp,
+        datasets: [{
+          label: '# of Votes',
+          data: rateUsd,
+          borderWidth: 1
+        }]
+      },
+    });
+  });
+</script>
