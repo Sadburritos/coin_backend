@@ -28,7 +28,7 @@ public class RateService {
 
 	}
 
-	@Scheduled(fixedRate = 10000)
+	@Scheduled(fixedRate = 500)
 	public void getBitcoinRate() {
 
 		RateDataDto rateDataDto = webClient.get().uri("/v2/rates/bitcoin")
